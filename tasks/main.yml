@@ -1,0 +1,24 @@
+---
+- name: "Install packages"
+  ansible.builtin.package:
+    update_cache: yes
+    name:
+      - logrotate
+
+- name: "Create /etc/logrotate.d directory"
+  ansible.builtin.file:
+    path: "/etc/logrotate.d"
+    state: directory
+    mode: 0600
+    owner: "root"
+    group: "root"
+
+- name: "Import configurations"
+  notify: "Reload Logrotate"
+  loop: "{{ logrotate_configurations }}"
+  ansible.builtin.copy:
+    src: "files/{{ item }}"
+    dest: "/etc/logrotate.d/{{ item }}"
+    mode: 0600
+    owner: "root"
+    group: "root"

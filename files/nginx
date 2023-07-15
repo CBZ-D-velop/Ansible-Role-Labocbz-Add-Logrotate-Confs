@@ -1,0 +1,33 @@
+##############################
+#                            #
+# Ansible / Tower managed on #
+#                            #
+##############################
+
+/var/log/nginx/*.log
+{
+    #
+    daily
+    missingok
+    rotate 31   
+    compress
+    delaycompress
+    notifempty
+    sharedscripts
+    dateext
+    dateformat -%Y-%m-%d
+    minsize 1M
+    #
+    prerotate
+        if [ -d /etc/logrotate.d/httpd-prerotate ]; then \
+            run-parts /etc/logrotate.d/httpd-prerotate; \
+        fi \
+    endscript
+    #
+    postrotate
+            invoke-rc.d nginx rotate >/dev/null 2>&1
+    endscript
+    #
+    create 0640 www-data adm
+
+}

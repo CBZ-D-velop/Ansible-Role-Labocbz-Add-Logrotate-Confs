@@ -1,0 +1,31 @@
+##############################
+#                            #
+# Ansible / Tower managed on #
+#                            #
+##############################
+
+/var/log/openvswitch/*.log
+{
+    #
+    daily
+    missingok
+    rotate 31   
+    compress
+    delaycompress
+    notifempty
+    sharedscripts
+    dateext
+    dateformat -%Y-%m-%d
+    minsize 1M
+    #
+    postrotate   
+    # Tell Open vSwitch daemons to reopen their log files
+        if [ -d /var/run/openvswitch ]; then
+            find /var/run/openvswitch -name '*.pid' -printf "%f\n" | while read -r pidfile; do
+                ovs-appctl -t "${pidfile%%.pid}" vlog/reopen
+            done
+        fi
+    endscript
+    #
+    create 640 root adm
+}

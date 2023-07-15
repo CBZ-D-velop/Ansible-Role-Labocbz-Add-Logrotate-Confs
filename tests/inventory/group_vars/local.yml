@@ -1,0 +1,8 @@
+---
+inv_logrotate_local_configurations:
+  - "unattended-upgrades"
+
+inv_logrotate_configurations: >
+  {{ inv_logrotate_local_configurations | default(['']) +
+  inv_logrotate_group1_configurations | default(['']) +
+  inv_logrotate_group2_configurations | default(['']) }}

@@ -1,0 +1,33 @@
+##############################
+#                            #
+# Ansible / Tower managed on #
+#                            #
+##############################
+
+/var/www/html/*/error.log
+/var/www/html/*/access.log
+{
+    #
+    daily
+    missingok
+    rotate 31   
+    compress
+    delaycompress
+    notifempty
+    sharedscripts
+    dateext
+    dateformat -%Y-%m-%d
+    minsize 1M
+    #
+    create 660 root www-data
+    #
+    postrotate
+        /etc/init.d/apache2 reload > /dev/null
+    endscript
+    #
+    prerotate
+        if [ -d /etc/logrotate.d/httpd-prerotate ]; then \
+            run-parts /etc/logrotate.d/httpd-prerotate; \
+        fi; \
+    endscript
+}

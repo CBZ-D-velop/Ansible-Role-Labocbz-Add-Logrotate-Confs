@@ -1,0 +1,25 @@
+##############################
+#                            #
+# Ansible / Tower managed on #
+#                            #
+##############################
+
+/var/log/chrony/*.log
+{
+    #
+    daily
+    missingok
+    rotate 31   
+    compress
+    delaycompress
+    notifempty
+    sharedscripts
+    dateext
+    dateformat -%Y-%m-%d
+    minsize 1M
+    #
+    postrotate
+        /usr/bin/chronyc cyclelogs > /dev/null 2>&1 || true
+    endscript
+    #
+}

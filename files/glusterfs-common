@@ -1,0 +1,27 @@
+##############################
+#                            #
+# Ansible / Tower managed on #
+#                            #
+##############################
+
+/var/log/glusterfs/*.log /var/log/glusterfs/bricks/*.log
+{
+    #
+    daily
+    missingok
+    rotate 31   
+    compress
+    delaycompress
+    notifempty
+    sharedscripts
+    dateext
+    dateformat -%Y-%m-%d
+    minsize 1M
+    #
+    copytruncate
+    #
+    postrotate
+        [ ! -f /var/run/glusterd.pid ] || kill -HUP `cat /var/run/glusterd.pid` ; killall -HUP glusterfs > /dev/null 2>&1 || true
+    endscript
+    #
+}

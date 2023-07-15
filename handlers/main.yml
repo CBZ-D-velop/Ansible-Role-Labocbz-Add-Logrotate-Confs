@@ -1,0 +1,5 @@
+---
+- name: "Reload Logrotate"
+  register: output
+  changed_when: output.rc != 0
+  ansible.builtin.shell: "logrotate /etc/logrotate.d/*"

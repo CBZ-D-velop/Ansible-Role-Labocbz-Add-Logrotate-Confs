@@ -1,0 +1,27 @@
+##############################
+#                            #
+# Ansible / Tower managed on #
+#                            #
+##############################
+
+/var/log/corosync/corosync.log
+{
+    #
+    daily
+    missingok
+    rotate 31   
+    compress
+    delaycompress
+    notifempty
+    sharedscripts
+    dateext
+    dateformat -%Y-%m-%d
+    minsize 1M
+    #
+    nocreate
+    #
+    postrotate
+        /usr/sbin/corosync-cfgtool -L
+    endscript
+    #
+}

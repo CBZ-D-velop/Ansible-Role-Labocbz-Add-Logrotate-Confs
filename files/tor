@@ -1,0 +1,28 @@
+##############################
+#                            #
+# Ansible / Tower managed on #
+#                            #
+##############################
+
+/var/log/tor/*log
+{
+    #
+    daily
+    missingok
+    rotate 31   
+    compress
+    delaycompress
+    notifempty
+    sharedscripts
+    dateext
+    dateformat -%Y-%m-%d
+    minsize 1M
+    #
+    postrotate
+        if invoke-rc.d tor status > /dev/null; then
+            invoke-rc.d tor reload > /dev/null
+        fi
+    endscript
+    #
+    create 0640 debian-tor adm
+}

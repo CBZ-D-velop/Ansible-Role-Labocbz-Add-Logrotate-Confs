@@ -1,0 +1,28 @@
+---
+# Don't forget to keep this file updated
+# molecule/<scenario>/verify.yml
+- name: "Verify"
+  hosts: "all"
+  gather_facts: false
+  tasks:
+
+    - name: "Check /etc/logrotate.d directory"
+      register: logrotate_folder
+      failed_when: not logrotate_folder.stat.exists
+      ansible.builtin.stat:
+        path: "/etc/logrotate.d"
+
+    - name: "Check all conf file"
+      loop: "{{ inv_logrotate_configurations }}"
+      loop_control:
+        loop_var: logrotate_file
+      register: logrotate_file_state
+      failed_when: not logrotate_file_state.stat.exists
+      ansible.builtin.stat:
+        path: "/etc/logrotate.d/{{ logrotate_file }}"
+
+    - name: "Reload Logrotate and check status code"
+      register: logrotate_reload_status
+      failed_when: logrotate_reload_status.rc != 0
+      changed_when: logrotate_reload_status.rc != 0
+      ansible.builtin.shell: "logrotate /etc/logrotate.d/*"

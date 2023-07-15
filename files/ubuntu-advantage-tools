@@ -1,0 +1,25 @@
+##############################
+#                            #
+# Ansible / Tower managed on #
+#                            #
+##############################
+
+# use the root group by default, since this is the owning group
+# of /var/log/ubuntu-advantage*.log files.
+/var/log/ubuntu-advantage*.log
+{
+    #
+    daily
+    missingok
+    rotate 31   
+    compress
+    delaycompress
+    notifempty
+    sharedscripts
+    dateext
+    dateformat -%Y-%m-%d
+    minsize 1M
+    #
+    su root root
+    create 0644 root root
+}

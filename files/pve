@@ -1,0 +1,26 @@
+##############################
+#                            #
+# Ansible / Tower managed on #
+#                            #
+##############################
+
+/var/log/pveproxy/access.log {
+    #
+    daily
+    missingok
+    rotate 31   
+    compress
+    delaycompress
+    notifempty
+    sharedscripts
+    dateext
+    dateformat -%Y-%m-%d
+    minsize 1M
+    #
+    postrotate
+        /bin/systemctl try-reload-or-restart pveproxy.service
+        /bin/systemctl try-reload-or-restart spiceproxy.service
+    endscript
+    #
+    create 640 www-data www-data
+}

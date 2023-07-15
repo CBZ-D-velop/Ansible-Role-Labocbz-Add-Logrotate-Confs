@@ -1,0 +1,24 @@
+##############################
+#                            #
+# Ansible / Tower managed on #
+#                            #
+##############################
+
+# no packages own wtmp -- we'll rotate it here
+/var/log/wtmp
+{
+    su root root
+    #
+    daily
+    missingok
+    rotate 31
+    compress
+    delaycompress
+    notifempty
+    sharedscripts
+    dateext
+    dateformat -%Y-%m-%d
+    minsize 1M
+    #
+    create 0664 root utmp
+}
