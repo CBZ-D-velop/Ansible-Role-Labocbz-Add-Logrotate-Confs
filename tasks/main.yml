@@ -3,13 +3,13 @@
   ansible.builtin.package:
     update_cache: yes
     name:
-      - logrotate
+      - "logrotate"
 
 - name: "Create /etc/logrotate.d directory"
   ansible.builtin.file:
     path: "/etc/logrotate.d"
     state: directory
-    mode: 0600
+    mode: "0600"
     owner: "root"
     group: "root"
 
@@ -19,6 +19,6 @@
   ansible.builtin.copy:
     src: "files/{{ item }}"
     dest: "/etc/logrotate.d/{{ item }}"
-    mode: 0600
+    mode: "0600"
     owner: "root"
     group: "root"
