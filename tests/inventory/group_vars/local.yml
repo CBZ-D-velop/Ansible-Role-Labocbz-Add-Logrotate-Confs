@@ -1,8 +1,44 @@
 ---
-inv_logrotate_local_configurations:
-  - "unattended-upgrades"
+inv_prepare_host_users:
+  - login: "mysql"
+    group: "mysql"
+    sudoer: false
+  - login: "ceph"
+    group: "ceph"
+    sudoer: false
+  - login: "debian-tor"
+    group: "debian-tor"
+    sudoer: false
 
-inv_logrotate_configurations: >
-  {{ inv_logrotate_local_configurations | default(['']) +
-  inv_logrotate_group1_configurations | default(['']) +
-  inv_logrotate_group2_configurations | default(['']) }}
+inv_logrotate_configurations:
+  - "alternatives"
+  - "apache2"
+  - "apt"
+  - "bootlog"
+  - "btmp"
+  - "ceph-common"
+  - "certbot"
+  - "chrony"
+  - "confconsole"
+  - "corosync"
+  - "cron-apt"
+  - "dbconfig-common"
+  - "dpkg"
+  - "fail2ban"
+  - "glusterfs-common"
+  - "lighttpd"
+  - "modsecurity"
+  - "mysql-server"
+  - "nginx"
+  - "openvswitch-switch"
+  - "pve"
+  - "pve-firewall"
+  - "redis-server"
+  - "rkhunter"
+  - "rsyslog"
+  - "tklbam"
+  - "tor"
+  - "ubuntu-advantage-tools"
+  - "ufw"
+  - "unattended-upgrades"
+  - "wtmp"
