@@ -16,6 +16,16 @@
 
 An Ansible role to install and add a Logrotate configuration on your host.
 
+The Ansible role manages and adds Logrotate configurations to a target system. It installs Logrotate and add configuration files for various services and applications. These configurations define the rotation, archiving, compression, and periodic deletion of system logs and other log files, optimizing disk space usage and simplifying log management.
+
+The role employs a modular approach by specifying configurations through a list of service names. Each service name corresponds to a specific logrotate configuration that is added or updated on the system.
+
+With this flexible approach, extending the role is straightforward by adding new services to the list, making it easy to manage logrotate configurations for additional services without directly modifying the role's code.
+
+Using this list of configurations centralizes and organizes logrotate configuration management. System administrators can easily add or remove items from the list to adjust logrotate configurations according to specific needs in their environment.
+
+In summary, the role is a powerful tool for efficiently managing logrotate configurations on target systems. With its flexible and centralized approach, it provides a comprehensive solution for handling system log rotation, contributing to the smooth operation and maintenance of systems.
+
 ## Folder structure
 
 By default Ansible will look in each directory within a role for a main.yml file for relevant content (also man.yml and main):
