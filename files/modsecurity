@@ -5,6 +5,7 @@
 ##############################
 
 /var/log/apache2/modsec_audit.log
+/var/www/html/*/modsec_audit.log
 {
     #
     daily
