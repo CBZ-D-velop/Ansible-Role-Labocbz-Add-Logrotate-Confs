@@ -1,0 +1,27 @@
+##############################
+#                            #
+# Ansible / Tower managed on #
+#                            #
+##############################
+
+/var/log/node_exporter/*.log
+{
+    #
+    daily
+    missingok
+    rotate 31   
+    compress
+    delaycompress
+    notifempty
+    sharedscripts
+    dateext
+    dateformat -%Y-%m-%d
+    minsize 1M
+    #
+    create 660 root node_exporter
+    #
+    postrotate
+        systemctl restart node_exporter > /dev/null
+    endscript
+    #
+}
