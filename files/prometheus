@@ -1,0 +1,27 @@
+##############################
+#                            #
+# Ansible / Tower managed on #
+#                            #
+##############################
+
+/var/log/prometheus/*.log
+{
+    #
+    daily
+    missingok
+    rotate 31   
+    compress
+    delaycompress
+    notifempty
+    sharedscripts
+    dateext
+    dateformat -%Y-%m-%d
+    minsize 1M
+    #
+    create 660 root prometheus
+    #
+    postrotate
+        systemctl restart prometheus > /dev/null
+    endscript
+    #
+}
