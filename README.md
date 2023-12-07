@@ -291,6 +291,11 @@ Here you can put your change to keep a trace of your work and decisions.
 * Molecule now use custom Docker image in CI/CD by env vars
 * New CICD with needs and optimization
 
+### 2023-12-07: Prometheus / Node_Exporter
+
+* Conf added for default node_exporter install
+* Conf added for default prometheus install
+
 ## Authors
 
 * Lord Robin Crombez
