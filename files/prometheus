@@ -7,6 +7,7 @@
 /var/log/prometheus/*.log
 {
     #
+    su www-data www-data
     daily
     missingok
     rotate 31   

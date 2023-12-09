@@ -8,6 +8,7 @@
 /var/www/html/*/access.log
 {
     #
+    su www-data www-data
     daily
     missingok
     rotate 31   
