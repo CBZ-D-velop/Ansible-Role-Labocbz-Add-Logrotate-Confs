@@ -11,7 +11,7 @@
     su www-data www-data
     daily
     missingok
-    rotate 31   
+    rotate 31
     compress
     delaycompress
     notifempty
@@ -20,15 +20,10 @@
     dateformat -%Y-%m-%d
     minsize 1M
     #
-    create 660 root www-data
+    create 755 www-data www-data
     #
     postrotate
         /etc/init.d/apache2 reload > /dev/null
     endscript
     #
-    prerotate
-        if [ -d /etc/logrotate.d/httpd-prerotate ]; then \
-            run-parts /etc/logrotate.d/httpd-prerotate; \
-        fi; \
-    endscript
 }

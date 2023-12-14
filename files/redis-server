@@ -4,12 +4,13 @@
 #                            #
 ##############################
 
-/var/log/redis/redis-server*.log
+/var/log/redis/redis-server**.log
 {
     #
+    su redis redis
     daily
     missingok
-    rotate 31   
+    rotate 31
     compress
     delaycompress
     notifempty
@@ -17,5 +18,11 @@
     dateext
     dateformat -%Y-%m-%d
     minsize 1M
+    #
+    create 755 redis redis
+    #
+    postrotate
+        systemctl restart redis > /dev/null
+    endscript
     #
 }
