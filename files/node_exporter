@@ -7,6 +7,7 @@
 /var/log/node_exporter/*.log
 {
     #
+    su node_exporter node_exporter
     daily
     missingok
     rotate 31   
@@ -18,7 +19,7 @@
     dateformat -%Y-%m-%d
     minsize 1M
     #
-    create 660 root node_exporter
+    create 0700 node_exporter node_exporter
     #
     postrotate
         systemctl restart node_exporter > /dev/null

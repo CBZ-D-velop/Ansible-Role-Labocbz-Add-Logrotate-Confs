@@ -7,7 +7,7 @@
 /var/log/prometheus/*.log
 {
     #
-    su www-data www-data
+    su prometheus prometheus
     daily
     missingok
     rotate 31   
@@ -19,7 +19,7 @@
     dateformat -%Y-%m-%d
     minsize 1M
     #
-    create 660 root prometheus
+    create 0700 prometheus prometheus
     #
     postrotate
         systemctl restart prometheus > /dev/null
