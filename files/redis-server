@@ -4,7 +4,8 @@
 #                            #
 ##############################
 
-/var/log/redis/redis-server**.log
+/var/log/redis/*.log
+/var/log/redis/*/*.log
 {
     #
     su redis redis
@@ -19,10 +20,10 @@
     dateformat -%Y-%m-%d
     minsize 1M
     #
-    create 755 redis redis
+    create 0700 redis redis
     #
-    postrotate
-        systemctl restart redis > /dev/null
-    endscript
+    #postrotate
+    #    systemctl restart redis > /dev/null
+    #endscript
     #
 }

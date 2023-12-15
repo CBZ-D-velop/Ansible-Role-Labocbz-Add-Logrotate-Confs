@@ -19,7 +19,7 @@
     dateformat -%Y-%m-%d
     minsize 1M
     #
-    create 755 prometheus prometheus
+    create 0700 prometheus prometheus
     #
     postrotate
         systemctl restart prometheus > /dev/null

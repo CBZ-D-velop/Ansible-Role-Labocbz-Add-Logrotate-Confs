@@ -4,16 +4,13 @@
 #                            #
 ##############################
 
-/var/www/html/*/error.log
-/var/www/html/*/access.log
-/var/log/apache2/error.log
-/var/log/apache2/access.log
+/var/log/elasticsearch/*.log
 {
     #
-    su www-data www-data
+    su elasticsearch elasticsearch
     daily
     missingok
-    rotate 31
+    rotate 31   
     compress
     delaycompress
     notifempty
@@ -22,10 +19,10 @@
     dateformat -%Y-%m-%d
     minsize 1M
     #
-    create 755 www-data www-data
+    create 0700 elasticsearch elasticsearch
     #
     postrotate
-        /etc/init.d/apache2 reload > /dev/null
+        systemctl restart elasticsearch > /dev/null
     endscript
     #
 }
