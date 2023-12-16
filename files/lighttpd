@@ -16,7 +16,7 @@
     sharedscripts
     dateext
     dateformat -%Y-%m-%d
-    minsize 1M
+    
     #
     postrotate
         if [ -x /usr/sbin/invoke-rc.d ]; then \

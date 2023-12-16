@@ -15,7 +15,7 @@
     sharedscripts
     dateext
     dateformat -%Y-%m-%d
-    minsize 1M
+    
     #
     postrotate
         /bin/systemctl try-reload-or-restart pveproxy.service

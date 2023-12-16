@@ -16,7 +16,7 @@
     sharedscripts
     dateext
     dateformat -%Y-%m-%d
-    minsize 1M
+    
     #
     create 600 root root
 }

@@ -18,7 +18,7 @@
     sharedscripts
     dateext
     dateformat -%Y-%m-%d
-    minsize 1M
+    
     #
     create 0660 root utmp
 }

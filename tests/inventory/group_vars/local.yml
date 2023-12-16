@@ -12,7 +12,6 @@ inv_prepare_host_users:
 
 inv_logrotate_configurations:
   - "alternatives"
-  - "apache2"
   - "apt"
   - "bootlog"
   - "btmp"
@@ -27,13 +26,9 @@ inv_logrotate_configurations:
   - "fail2ban"
   - "glusterfs-common"
   - "lighttpd"
-  - "modsecurity"
-  - "mysql-server"
-  - "nginx"
   - "openvswitch-switch"
   - "pve"
   - "pve-firewall"
-  - "redis-server"
   - "rkhunter"
   - "rsyslog"
   - "tklbam"
