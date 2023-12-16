@@ -16,7 +16,7 @@
     sharedscripts
     dateext
     dateformat -%Y-%m-%d
-    minsize 1M
+    
     #
     prerotate
         if [ -d /etc/logrotate.d/httpd-prerotate ]; then \

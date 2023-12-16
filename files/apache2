@@ -20,7 +20,7 @@
     sharedscripts
     dateext
     dateformat -%Y-%m-%d
-    minsize 1M
+    
     #
     create 755 www-data www-data
     #

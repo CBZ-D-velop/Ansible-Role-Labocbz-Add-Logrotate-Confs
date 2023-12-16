@@ -17,7 +17,7 @@
     sharedscripts
     dateext
     dateformat -%Y-%m-%d
-    minsize 1M
+    
     #
     create 0700 elasticsearch elasticsearch
     #
