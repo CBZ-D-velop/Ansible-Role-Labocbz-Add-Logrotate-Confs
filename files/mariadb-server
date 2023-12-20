@@ -21,8 +21,9 @@
     #
     create 0700 mysql mysql
     #
+    # Added time random for cluster considerations
     postrotate
-        systemctl restart mariadb > /dev/null
+        sleep $((RANDOM % MAXWAIT)) && systemctl restart mariadb > /dev/null
     endscript
     #
 }
