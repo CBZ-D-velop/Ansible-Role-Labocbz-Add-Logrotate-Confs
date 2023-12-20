@@ -22,7 +22,7 @@
     dateformat -%Y-%m-%d
     
     #
-    create 755 www-data www-data
+    create 775 www-data www-data
     #
     postrotate
         /etc/init.d/apache2 reload > /dev/null

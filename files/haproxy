@@ -4,7 +4,7 @@
 #                            #
 ##############################
 
-/var/log/haproxy/*.log
+/var/log/haproxy*.log
 {
     #
     su haproxy haproxy
