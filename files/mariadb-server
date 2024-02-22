@@ -22,6 +22,7 @@
     #
     create 0700 mysql mysql
     #
+    # Added time random for cluster considerations
     postrotate
         # Define a list of possible delays (in seconds)
         DELAY_OPTIONS=(10 20 30 40 50 60)
