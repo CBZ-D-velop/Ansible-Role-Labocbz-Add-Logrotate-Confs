@@ -97,7 +97,7 @@ yaml_lint:
 #  allow_failure: false
 #  rules:
 #    - if: '$CI_COMMIT_MESSAGE=~/^[^Merge]/ && $CI_COMMIT_BRANCH == "develop"'
-#
+
 ansible_lint:
   stage: lint
   image: $NEXUS_REPOS_DOCKER_REGISTRY/$DOCKER_IMAGE_ANSIBLE_LINT
