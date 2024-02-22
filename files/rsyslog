@@ -6,7 +6,9 @@
 
 /var/log/syslog
 {
+    #
     su root root
+    #
     #
     daily
     missingok
@@ -37,7 +39,9 @@
 /var/log/debug
 /var/log/messages
 {
+    #
     su root root
+    #
     #
     daily
     missingok

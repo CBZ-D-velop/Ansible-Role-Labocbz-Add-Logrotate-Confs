@@ -1,7 +1,17 @@
 ---
-add_logrotate_confs__files:
+inv_prepare_host__system_users:
+  - login: "mysql"
+    group: "mysql"
+    sudoer: false
+  - login: "ceph"
+    group: "ceph"
+    sudoer: false
+  - login: "debian-tor"
+    group: "debian-tor"
+    sudoer: false
+
+inv_add_logrotate_confs__files:
   - "alternatives"
-  - "apache2"
   - "apt"
   - "bootlog"
   - "btmp"
@@ -16,13 +26,9 @@ add_logrotate_confs__files:
   - "fail2ban"
   - "glusterfs-common"
   - "lighttpd"
-  - "modsecurity"
-  - "mysql-server"
-  - "nginx"
   - "openvswitch-switch"
   - "pve"
   - "pve-firewall"
-  - "redis-server"
   - "rkhunter"
   - "rsyslog"
   - "tklbam"

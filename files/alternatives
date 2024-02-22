@@ -6,7 +6,9 @@
 
 /var/log/alternatives.log
 {
+    #
     su root root
+    #
     #
     daily
     missingok

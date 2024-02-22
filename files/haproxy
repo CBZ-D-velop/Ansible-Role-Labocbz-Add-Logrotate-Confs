@@ -8,6 +8,7 @@
 {
     #
     su haproxy haproxy
+    #
     daily
     missingok
     rotate 31

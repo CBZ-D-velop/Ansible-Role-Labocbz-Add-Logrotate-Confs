@@ -7,7 +7,9 @@
 # no packages own btmp -- we'll rotate it here
 /var/log/btmp
 {
+    #
     su root root
+    #
     #
     daily
     missingok

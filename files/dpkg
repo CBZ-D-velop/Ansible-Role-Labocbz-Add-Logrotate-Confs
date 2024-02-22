@@ -6,7 +6,9 @@
 
 /var/log/dpkg.log
 {
+    #
     su root root
+    #
     #
     daily
     missingok

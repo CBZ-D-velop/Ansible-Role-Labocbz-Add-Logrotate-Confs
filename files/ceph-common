@@ -7,6 +7,7 @@
 /var/log/ceph/*.log
 {
     #
+    #
     daily
     missingok
     rotate 31   

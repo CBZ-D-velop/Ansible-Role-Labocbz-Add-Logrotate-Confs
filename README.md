@@ -109,7 +109,7 @@ Some vars a required to run this role:
 
 ```YAML
 ---
-logrotate_configurations: []
+add_logrotate_confs__files []
 #  - "alternatives"
 #  - "apache2"
 #  - "apt"
@@ -156,7 +156,7 @@ In order to surchage vars, you have multiples possibilities but for mains cases 
 inv_logrotate_local_configurations:
   - "unattended-upgrades"
 
-inv_logrotate_configurations: >
+inv_add_logrotate_confs__files >
   {{ inv_logrotate_local_configurations | default(['']) +
   inv_logrotate_group1_configurations | default(['']) +
   inv_logrotate_group2_configurations | default(['']) }}
@@ -211,7 +211,7 @@ To run this role, you can copy the molecule/default/converge.yml playbook and ad
     tags:
     - "labocbz.add_logrotate_confs"
     vars:
-    logrotate_configurations: "{{ inv_logrotate_configurations }}"
+    add_logrotate_confs__files "{{ inv_logrotate_configurations }}"
     ansible.builtin.include_role:
     name: "labocbz.add_logrotate_confs"
 ```
@@ -295,6 +295,14 @@ Here you can put your change to keep a trace of your work and decisions.
 
 * Conf added for default node_exporter install
 * Conf added for default prometheus install
+
+### 2024-02-22: New support
+
+* New CI
+* Added Sonarqube
+* Added support for Debian 12/11
+* Added support for Ubuntu 22
+* Added random for cluster services
 
 ## Authors
 

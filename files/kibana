@@ -8,6 +8,7 @@
 {
     #
     su kibana kibana
+    #
     daily
     missingok
     rotate 31   

@@ -6,7 +6,9 @@
 
 /var/log/ufw.log
 {
+    #
     su root root
+    #
     #
     daily
     missingok
