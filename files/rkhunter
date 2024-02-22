@@ -6,7 +6,9 @@
 
 /var/log/rkhunter.log
 {
+    #
     su root root
+    #
     #
     daily
     missingok

@@ -6,7 +6,9 @@
 
 /var/log/boot.log
 {
+    #
     su root root
+    #
     #
     daily
     missingok

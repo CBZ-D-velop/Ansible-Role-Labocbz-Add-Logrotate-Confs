@@ -6,6 +6,7 @@
 
 /var/log/pveproxy/access.log {
     #
+    #
     daily
     missingok
     rotate 31   

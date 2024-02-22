@@ -7,6 +7,7 @@
 /var/log/corosync/corosync.log
 {
     #
+    #
     daily
     missingok
     rotate 31   

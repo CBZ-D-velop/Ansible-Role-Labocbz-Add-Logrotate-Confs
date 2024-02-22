@@ -1,0 +1,39 @@
+---
+inv_prepare_host__system_users:
+  - login: "mysql"
+    group: "mysql"
+    sudoer: false
+  - login: "ceph"
+    group: "ceph"
+    sudoer: false
+  - login: "debian-tor"
+    group: "debian-tor"
+    sudoer: false
+
+inv_add_logrotate_confs__files:
+  - "alternatives"
+  - "apt"
+  - "bootlog"
+  - "btmp"
+  - "ceph-common"
+  - "certbot"
+  - "chrony"
+  - "confconsole"
+  - "corosync"
+  - "cron-apt"
+  - "dbconfig-common"
+  - "dpkg"
+  - "fail2ban"
+  - "glusterfs-common"
+  - "lighttpd"
+  - "openvswitch-switch"
+  - "pve"
+  - "pve-firewall"
+  - "rkhunter"
+  - "rsyslog"
+  - "tklbam"
+  - "tor"
+  - "ubuntu-advantage-tools"
+  - "ufw"
+  - "unattended-upgrades"
+  - "wtmp"

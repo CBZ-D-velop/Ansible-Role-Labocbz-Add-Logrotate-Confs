@@ -9,6 +9,7 @@
 /var/log/unattended-upgrades/unattended-upgrades-shutdown.log
 {
     #
+    #
     daily
     missingok
     rotate 31   

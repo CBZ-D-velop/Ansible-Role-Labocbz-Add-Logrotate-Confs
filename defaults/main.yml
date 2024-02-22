@@ -1,5 +1,5 @@
 ---
-logrotate_configurations:
+add_logrotate_confs__files:
   - "alternatives"
   - "apache2"
   - "apt"

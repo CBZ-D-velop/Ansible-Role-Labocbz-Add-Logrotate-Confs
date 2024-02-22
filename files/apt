@@ -8,6 +8,7 @@
 /var/log/apt/term.log
 {
     #
+    #
     daily
     missingok
     rotate 31   

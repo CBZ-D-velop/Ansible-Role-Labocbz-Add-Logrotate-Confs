@@ -8,6 +8,7 @@
 {
     #
     su grafana grafana
+    #
     daily
     missingok
     rotate 31

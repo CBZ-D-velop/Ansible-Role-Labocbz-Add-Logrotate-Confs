@@ -1,0 +1,64 @@
+---
+dependency:
+  name: "galaxy"
+  options:
+    ignore-certs: true
+
+driver:
+  name: "docker"
+
+platforms:
+  - name: "molecule-cicd-ubuntu-22-instance-1-add-logrotate-confs"
+    image: "${NEXUS_REPOS_DOCKER_REGISTRY}/${DOCKER_IMAGE_UBUNTU_22_ANSIBLE}"
+    hostname: "molecule-cicd-ubuntu-22-instance-1-add-logrotate-confs"
+    privileged: true
+    pre_build_image: true
+    command: "/sbin/init"
+    volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:rw"
+    tmpfs:
+      - "/run"
+      - "/tmp"
+    cgroupns_mode: "host"
+    cgroup_manager: "cgroupfs"
+    storage_driver: "overlay2"
+    networks:
+      - name: "molecule-cicd-ubuntu-22-add-logrotate-confs"
+
+provisioner:
+  name: "ansible"
+  inventory:
+    links:
+      hosts: "../../tests/inventory/hosts.yml"
+      group_vars: "../../tests/inventory/group_vars/"
+      host_vars: "../../tests/inventory/host_vars/"
+  options:
+    extra-vars: "@./../../tests/tower/tower.yml"
+  log: ${MOLECULE_ANSIBLE_LOG:-true}
+  env:
+    ANSIBLE_CONFIG: "../../.ansible.cfg"
+    ANSIBLE_FORCE_COLOR: "true"
+    # disable nologs
+    MOLECULE_NOLOG: 0
+    # disable destroy
+    MOLECULE_DESTROY: "never"
+    # debug mode (same as --debug) -- very verbose
+    MOLECULE_DEBUG: 1
+    # change ansible own verbosity
+    ANSIBLE_VERBOSITY: 1
+
+verifier:
+  name: "ansible"
+
+scenario:
+  name: "cicd-ubuntu-22"
+  test_sequence:
+    - "destroy"
+    - "syntax"
+    - "dependency"
+    - "create"
+    - "prepare"
+    - "converge"
+    - "idempotence"
+    - "verify"
+    - "destroy"

@@ -9,6 +9,7 @@
 {
     #
     su redis redis
+    #
     daily
     missingok
     rotate 31
@@ -22,8 +23,8 @@
     #
     create 0700 redis redis
     #
-    #postrotate
-    #    systemctl restart redis > /dev/null
-    #endscript
+    postrotate
+        systemctl restart redis > /dev/null
+    endscript
     #
 }

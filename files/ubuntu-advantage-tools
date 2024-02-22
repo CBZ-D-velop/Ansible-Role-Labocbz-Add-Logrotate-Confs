@@ -9,6 +9,7 @@
 /var/log/ubuntu-advantage*.log
 {
     #
+    #
     daily
     missingok
     rotate 31   

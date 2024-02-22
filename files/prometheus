@@ -8,6 +8,7 @@
 {
     #
     su prometheus prometheus
+    #
     daily
     missingok
     rotate 31   

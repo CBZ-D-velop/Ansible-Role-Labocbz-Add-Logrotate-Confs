@@ -8,6 +8,7 @@
 {
     #
     su mysql mysql
+    #
     daily
     missingok
     rotate 31
@@ -23,7 +24,13 @@
     #
     # Added time random for cluster considerations
     postrotate
-        sleep $((RANDOM % MAXWAIT)) && systemctl restart mariadb > /dev/null
+        # Define a list of possible delays (in seconds)
+        DELAY_OPTIONS=(10 20 30 40 50 60)
+        # Choose a random delay from the list
+        RANDOM_DELAY=${DELAY_OPTIONS[$RANDOM % ${#DELAY_OPTIONS[@]}]}
+        # Wait for the random delay
+        sleep $RANDOM_DELAY
+        systemctl restart mariadb > /dev/null
     endscript
     #
 }
