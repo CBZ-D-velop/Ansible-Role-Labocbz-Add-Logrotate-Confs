@@ -15,7 +15,7 @@
 
 - name: "Import configurations"
   notify: "Reload Logrotate"
-  loop: "{{ logrotate_configurations }}"
+  loop: "{{ add_logrotate_confs__files }}"
   ansible.builtin.copy:
     src: "files/{{ item }}"
     dest: "/etc/logrotate.d/{{ item }}"

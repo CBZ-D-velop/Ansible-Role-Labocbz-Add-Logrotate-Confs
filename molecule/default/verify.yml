@@ -13,7 +13,7 @@
         path: "/etc/logrotate.d"
 
     - name: "Check all conf file"
-      loop: "{{ inv_logrotate_configurations }}"
+      loop: "{{ inv_add_logrotate_confs__files }}"
       loop_control:
         loop_var: logrotate_file
       register: logrotate_file_state
