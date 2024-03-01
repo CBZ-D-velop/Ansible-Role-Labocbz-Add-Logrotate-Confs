@@ -211,7 +211,7 @@ To run this role, you can copy the molecule/default/converge.yml playbook and ad
     tags:
     - "labocbz.add_logrotate_confs"
     vars:
-    add_logrotate_confs__files "{{ inv_logrotate_configurations }}"
+    add_logrotate_confs__files "{{ inv_add_logrotate_confs__files }}"
     ansible.builtin.include_role:
     name: "labocbz.add_logrotate_confs"
 ```
