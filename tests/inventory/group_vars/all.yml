@@ -31,9 +31,4 @@ inv_add_logrotate_confs__files:
   - "pve-firewall"
   - "rkhunter"
   - "rsyslog"
-  - "tklbam"
-  - "tor"
-  - "ubuntu-advantage-tools"
-  - "ufw"
-  - "unattended-upgrades"
-  - "wtmp"
+
