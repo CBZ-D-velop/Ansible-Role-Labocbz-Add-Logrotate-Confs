@@ -40,7 +40,7 @@
     #    dest: "/tmp/{{ bundle.name }}.zip"
     #    owner: "root"
     #    group: "root"
-    #    mode: 0700
+    #    mode: "0700"
 
     #- name: "Include labocbz.add_certificates"
     #  tags:
